@@ -16,4 +16,4 @@ route.delete('/deletemap',(req,res)=>{
 route.get('/viewtask',(req,res)=>{
     res.send("HR view task route called")
 });
-module.exports=hrRoute;
+module.exports=route;
