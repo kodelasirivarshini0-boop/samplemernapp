@@ -1,15 +1,32 @@
 let express=require('express');
 let route = express.Router();
 let {users}=require('../models/users');
+let bcrypt=require('bcrypt');
 
-route.post('/register',(req,res)=>{
+
+route.post('/register',async(req,res)=>{
     let data=req.body;
+    data.password=await bcrypt.hash(data.password,10);
     let newuser = new users(data);
-    let result = await newuser.save();
-    res.send("register route called")
+    let result =  await newuser.save();
+    res.send(result)
 });
 
+
+
 route.post('/login',(req,res)=>{
+    let data=req.body;
+    let emailcheck=users.findOne({email:data.email});
+    if(!emailcheck){
+        res.send("user not found");
+    }
+    res.send{"login successful"};
+    else{
+        res.send("invalid password");
+
+    }else{
+        res.send{}
+    }
     res.send("login route called")
 });
 

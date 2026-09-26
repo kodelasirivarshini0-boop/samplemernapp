@@ -3,7 +3,7 @@ let app=express();
 let mongoose=require('mongoose');
 let empRoute=require('./routes/emp_route');
 let hrRoute=require('./routes/hr_route');
-mongoose.connect("mongodb://localhost:27017/HRmanagement").then(()=> console.log("Database connected successfully"))
+mongoose.connect("mongodb://localhost:27017/hrmanagement").then(()=> console.log("Database connected successfully"))
 .catch((err)=> console.log(err));
 
 app.use (express.json());
