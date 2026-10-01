@@ -1,6 +1,7 @@
 let express = require('express');
 let hrRoute = express.Router();
 let { users } = require('../models/users');
+let task= require('../models/task');
 hrRoute.get('/viewmap', async (req, res) => {
     let result = await users.find({ role: 'employee' });
     res.send(result);
@@ -11,8 +12,12 @@ hrRoute.get('/viewmap', (req, res) => {
     res.send("HR view map route called");
 });
 
-hrRoute.post('/assigntask', (req, res) => {
-    res.send("HR assign task route called");
+hrRoute.post('/assigntask', async(req, res) => {
+    let data = req.body;
+    let newTask=new task(data);
+    let result = await newTask.save()
+    res.send(result);
+
 });
 
 hrRoute.delete('/deletemap', (req, res) => {
