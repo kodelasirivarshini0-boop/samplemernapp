@@ -8,4 +8,4 @@ function header(){
         </div>
     )
 }
-export default Header
+export default header

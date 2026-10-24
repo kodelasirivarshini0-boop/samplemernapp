@@ -5,4 +5,4 @@ function contact() {
         </div>
     )
 }
-export default Home
+export default contact

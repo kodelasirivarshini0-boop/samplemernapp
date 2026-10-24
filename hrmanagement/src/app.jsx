@@ -1,13 +1,13 @@
-import Header from "./components/header"
-import Footer from "./components/footer"
-import Home from "./pages/home"
-import About from "./pages/about"
-import Contact from "./pages/contact"
+import header from "./components/header"
+import footer from "./components/footer"
+import home from "./pages/home"
+import about from "./pages/about"
+import contact from "./pages/contact"
 import{Routes,Route} from 'react-router-dom'
 function App() {
   return (
     <div>
-      <Header></Header>
+      <header></header>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
